@@ -35,6 +35,7 @@ then
 	sudo apt-get install -y vim
 	cp $Cfg_File_Path/.vimrc ~/.vimrc
 
+	:'
 	echo "GetPCReady: Install vim - nerdtree"
 	git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 	if [ ! -d "~/.vim/plugin" ]
@@ -47,9 +48,11 @@ then
 		mkdir -p ~/.vim/doc
 	fi
 	cp ~/.vim/bundle/nerdtree/doc/NERDTree.txt ~/.vim/doc/NERDTree.txt
+	'
 fi
 
 exit 0
+
 # tmux
 sudo apt-get install -y tmux
 
