@@ -3,10 +3,18 @@
 # History:
 # 2018/09/03    tim    First edition
 
+# Function Switch
+UPDATE_SOURCE_LIST="ON"
+GIT="ON"
+VIM="ON"
+TMUX="ON"
+GCC="ON"
+
+
 # Variable
 Cfg_File_Path="./cfg"
+
 # Update source list
-UPDATE_SOURCE_LIST="OFF"
 if [ $UPDATE_SOURCE_LIST == "ON" ]
 then
 	echo "Updata source list..."
@@ -20,7 +28,6 @@ then
 fi
 
 #Git
-GIT="OFF"
 if [ $GIT == "ON" ]
 then
 	echo "GetPCReady: Install git ..."
@@ -28,7 +35,6 @@ then
 fi
 
 # Vim
-VIM="ON"
 if [ $VIM == "ON" ]
 then
 	echo "GetPCReady: Install vim ..."
@@ -51,9 +57,18 @@ then
 	'
 fi
 
-exit 0
-
 # tmux
-sudo apt-get install -y tmux
+if [ $TMUX == "ON" ]
+then
+	echo "GetPCReady: Install tmux ..."
+	sudo apt-get install -y tmux
+fi
+
+# gcc + make
+if [ $GCC == "ON" ]
+then
+	echo "GetPCReady: Install gcc and make ..."
+	sudo apt-get install -y gcc make
+fi
 
 exit 0
